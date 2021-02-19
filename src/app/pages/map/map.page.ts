@@ -27,11 +27,19 @@ export class MapPage {
 
 
    getPaysData() {
-   this.http.get('https://restcountries.eu/rest/v2/all').subscribe((data ) => {
-     
+    this.http.get('https://restcountries.eu/rest/v2/all').subscribe((data ) => {
     this.listPays = Object.entries(data)
-
     });
+   }
+
+   sendItem(item){
+    /*let dataToSend = []
+    dataToSend.push(item.name) 
+    dataToSend.push(item.capital)
+    dataToSend.push(item.region)
+    dataToSend.push(item.alpha2code)
+    this.firebaseService.addData("Pays",dataToSend).then( res => this.pays = res);*/
+    console.log(item)
    }
 
 

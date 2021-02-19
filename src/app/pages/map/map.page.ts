@@ -15,7 +15,7 @@ import {json} from '@angular-devkit/core';
 
 
 export class MapPage {
-
+  listPays = []
   constructor(
     private http: HttpClient,
     private leafLetService: LeafletService,
@@ -23,24 +23,13 @@ export class MapPage {
     ) {
       this.getPaysData();
    }
-
-
-    paysData = {
-      name: '',
-      capital: '',
-      continent: '',
-    };
+   
 
 
    getPaysData() {
    this.http.get('https://restcountries.eu/rest/v2/all').subscribe((data ) => {
-     for (const machin of Object.entries(data)) {
-       for (const [key, value] of Object.entries(machin)) {
-         this.paysData.name = value.name;
-         this.paysData.capital = value.capital;
-         this.paysData.continent = value.region;
-       }
-     }
+     
+    this.listPays = Object.entries(data)
     });
    }
 

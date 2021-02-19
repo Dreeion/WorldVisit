@@ -28,7 +28,12 @@ const routes: Routes = [
   {
     path: 'forgetpassword',
     loadChildren: () => import('./pages/forgetpassword/forgetpassword.module').then( m => m.ForgetpasswordPageModule)
+  },
+  {
+    path: 'datepicker',
+    loadChildren: () => import('./pages/datepicker/datepicker.module').then( m => m.DatepickerPageModule)
   }
+
 
 
 

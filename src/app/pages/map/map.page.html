@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-
 
 <ion-header>
   <ion-toolbar>
@@ -9,13 +7,27 @@
 
 
 <ion-content >
+  <table [routerLink]="['../datepicker']">
+    <tr *ngFor="let item of listPays; index as i">
+      <td>
+        {{item[1]['alpha2Code']}}
+      </td>
+      <td>
+        {{item[1]['name']}}
+      </td>
+      <td>
+        {{item[1]['capital']}}
+      </td>
+      <td>
+        {{item[1]['region']}}
+      </td>
+    </tr>
+</table>
  
-  {{ paysData.name }}
-  {{ paysData.capital }}
-  {{ paysData.continent }}
+  
+
 
 
 </ion-content>
 
 
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>

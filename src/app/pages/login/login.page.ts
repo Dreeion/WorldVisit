@@ -134,7 +134,7 @@ export class LoginPage {
   this.afAuth.auth.signInAnonymously().then(() => {
       console.log('Connexion r&eacute;ussie');
       this.loginSuccess();
-      this.navCtrl.navigateRoot('map');
+      this.navCtrl.navigateRoot('social');
     }).catch(err => {
       this.loginError();
       console.log('Erreur: ' + err);

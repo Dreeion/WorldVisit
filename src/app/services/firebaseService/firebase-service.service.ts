@@ -40,6 +40,13 @@ export class FirebaseService {
     });
   }
 
+   deleteAtPath(path) {
+    let array_r = [];
+    return new Promise((resolve) => {
+      console.log(this.afDB.list(path + '/').remove())
+    });
+  }
+
   getImagesStorage(image: any, images: any, key) {
     const imgRef = image.payload.exportVal().url;
     this.afSG.ref(imgRef).getDownloadURL().subscribe(imgUrl => {
@@ -78,6 +85,7 @@ export class FirebaseService {
       return firebase.database().ref().update(updates);
     }); 
   }
+  
 
   uploadImage(url : string, image: string ) {
         console.log(url)

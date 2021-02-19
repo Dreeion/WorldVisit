@@ -9,24 +9,30 @@ import {UserService} from "../../services/userService/user-service.service";
 })
 export class SocialPage {
 
-  images = [];
-  imagesUser = [];
+  pays = [];
 
   constructor(
       private firebase: FirebaseService,
       private user: UserService
   ) {
-    this.readImages();
-    this.getImagesUser();
+    this.getPays()
+    
   }
 
-  readImages() {
-    return this.firebase.getImagesDatabase(this.images, 'Images', null);
+
+
+  getPays() {
+     this.firebase.getDataFromFirebase("Pays").then( res => this.pays = res);
   }
 
-  getImagesUser() {
-    return this.firebase.getImagesUserDatabase('user-images', this.user.getCurrentUserId(), this.imagesUser);
-  }
+  deletePays(pays) {
+    this.firebase.deleteAtPath("Pays/"+pays+'/');
+    
+ }
 
+
+  takePicture() {
+    console.log('clickButton');
+  }
 
 }

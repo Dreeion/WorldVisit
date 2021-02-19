@@ -44,8 +44,6 @@ export class MapPage {
     this.leafLetService.initGMarker();
   }
 
-  takePicture() {
-    console.log('clickButton');
-  }
+ 
 }
 

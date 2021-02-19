@@ -7,32 +7,19 @@
   position: absolute;
 }
 
-.title{
-  font-weight: bold;
-  margin-top: 5%;
-  text-align: left;
+.header {
+ height: 60px;
+  background: darkblue;
 }
 
-.content_img{
-  margin: 0;
-  padding: 0;
-  display: table-cell;
+.title{
+  font-weight: bold;
+  text-align: left;
+  color: #dddddd;
 }
 
 .scroll {
   overflow-y: auto;
-}
-
-.content_img img{
-  display: inline-block;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-  margin: 0;
-  max-height: 200px;
-  max-width: 150px;
-  min-height: 200px;
-  min-width: 150px;
 }
 
 .img_popular{
@@ -92,4 +79,13 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.countryFlag {
+  height: 45px;
+  width: auto;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
 }

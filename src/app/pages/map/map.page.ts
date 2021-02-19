@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { LeafletService} from '../../services/leafletService/leaflet-service.service'
-import { PhotoService } from '../../services/photoService/photo.service'
-import { FirebaseService } from '../../services/firebaseService/firebase-service.service'
+import { LeafletService} from '../../services/leafletService/leaflet-service.service';
+import { FirebaseService } from '../../services/firebaseService/firebase-service.service';
+import { HttpClient } from '@angular/common/http';
+import {forEach} from '@angular-devkit/schematics';
+import {element} from 'protractor';
+import {json} from '@angular-devkit/core';
 
 @Component({
   selector: 'app-map',
@@ -16,34 +17,33 @@ import { FirebaseService } from '../../services/firebaseService/firebase-service
 export class MapPage {
 
   constructor(
-    private camera: Camera,
+    private http: HttpClient,
     private leafLetService: LeafletService,
-    private photoService: PhotoService,
-    private firebaseService:FirebaseService
+    private firebaseService: FirebaseService,
     ) {
-    sourceType: this.camera.PictureSourceType.CAMERA;
+      this.getPaysData();
    }
- 
 
-  image: any = '';
 
-  ionViewDidEnter() { 
-    this.leafletMap(); 
-  }
+    paysData = {
+      name: '',
+      capital: '',
+      continent: '',
+    };
 
-  leafletMap() {
-    // In setView add latLng and zoom
-    
-    this.leafLetService.generateMap()
-    
-  }
 
-  /** Remove map when we have multiple map object */
-  ionViewWillLeave() {
-    this.leafLetService.map.remove();
-    this.leafLetService.initGMarker();
-  }
+   getPaysData() {
+   this.http.get('https://restcountries.eu/rest/v2/all').subscribe((data ) => {
+     for (const machin of Object.entries(data)) {
+       for (const [key, value] of Object.entries(machin)) {
+         this.paysData.name = value.name;
+         this.paysData.capital = value.capital;
+         this.paysData.continent = value.region;
+       }
+     }
+    });
+   }
 
- 
+
 }
 

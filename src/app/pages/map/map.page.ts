@@ -45,7 +45,7 @@ export class MapPage {
   }
 
   takePicture() {
-    this.photoService.selectImage()
+    console.log('clickButton');
   }
 }
 

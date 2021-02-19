@@ -7,25 +7,27 @@
 
 
 <ion-content >
-  <table [routerLink]="['../datepicker']">
+  <table [routerLink]="['../datepicker']" style="width: 100%">
     <tr *ngFor="let item of listPays; index as i">
       <td>
-        {{item[1]['alpha2Code']}}
+        <div class="have-flag">
+          <img class="countryFlag" src="http://www.geognos.com/api/en/countries/flag/{{item[1]['alpha2Code']}}.png" alt="pas de drapeau">
+        </div>
+        <div class="not-flag">
+<!--          <img src="assets/pictures/Drapeau-Pirate-e1496063032713.jpg">-->
+        </div>
       </td>
       <td>
-        {{item[1]['name']}}
-      </td>
-      <td>
-        {{item[1]['capital']}}
-      </td>
-      <td>
-        {{item[1]['region']}}
-      </td>
+    <tr>
+      <h2>{{item[1]['name']}}</h2>
+    </tr>
+    <tr>
+      Capitale: {{item[1]['capital']}}
+    </tr>
+    <tr>
+      Continent: {{item[1]['region']}}
     </tr>
 </table>
- 
-  
-
 
 
 </ion-content>

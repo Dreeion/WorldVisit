@@ -10,14 +10,13 @@
                 <tr *ngFor="let item of pays; index as i">
                     <td>
                         <tr>
-                            <img class="countryFlag" src="http://www.geognos.com/api/en/countries/flag/{{item['code']}}.png">
+                            <img class="countryFlag" src="http://www.geognos.com/api/en/countries/flag/{{item['code']}}.png" alt="pas de drapeau">
                         </tr>
                         <tr>
                             {{item['date']}}
                         </tr>
                     </td>
                     <td>
-<!--                        <tr *ngFor="let item of pays[i] | keyvalue">-->
                         <tr>
                             <h2>{{item['name']}}</h2>
                         </tr>

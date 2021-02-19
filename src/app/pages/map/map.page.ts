@@ -30,6 +30,7 @@ export class MapPage {
    this.http.get('https://restcountries.eu/rest/v2/all').subscribe((data ) => {
      
     this.listPays = Object.entries(data)
+
     });
    }
 

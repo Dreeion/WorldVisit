@@ -1,19 +1,39 @@
 <ion-content class="content">
-    <ion-title class="title">{{ 'SOCIAL.highlight' | translate }}</ion-title>
+    <div class="header">
+        <ion-title class="title">WoldVisit</ion-title>
+    </div>
+
     <div class="scroll">
         <ion-card-content class="content_img">
-            
-            <table>
+
+            <table class="table" style="width: 100%">
                 <tr *ngFor="let item of pays; index as i">
-                    <td *ngFor="let item of pays[i] | keyvalue">
-                        {{item.value}}
+                    <td>
+                        <tr>
+                            <img class="countryFlag" src="http://www.geognos.com/api/en/countries/flag/{{item['code']}}.png">
+                        </tr>
+                        <tr>
+                            {{item['date']}}
+                        </tr>
                     </td>
-                    <td >
-                        <button (click)="deletePays(item['nom']);">SUPPRIMER</button>
+                    <td>
+<!--                        <tr *ngFor="let item of pays[i] | keyvalue">-->
+                        <tr>
+                            <h2>{{item['name']}}</h2>
+                        </tr>
+                        <tr>
+                            Capitale: {{item['capital']}}
+                        </tr>
+                        <tr>
+                            Continent: {{item['region']}}
+                        </tr>
+                    </td>
+                    <td>
+                        <button (click)="deletePays(item['nom']);"><img src="assets/icon/delete.png"></button>
                     </td>
                 </tr>
 
-        </table>
+            </table>
         </ion-card-content>
     </div>
 
